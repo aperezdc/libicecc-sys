@@ -227,6 +227,8 @@ extern "C" {
     pub fn msg_job_done_set_sys_msec(msg: *mut JobDoneMsg, msec: uint32_t);
     pub fn msg_job_done_page_faults(msg: *const JobDoneMsg) -> uint32_t;
     pub fn msg_job_done_set_page_faults(msg: *mut JobDoneMsg, msec: uint32_t);
+    pub fn msg_job_done_exit_code(msg: *const JobDoneMsg) -> c_int;
+    pub fn msg_job_done_set_exit_code(msg: *mut JobDoneMsg, code: c_int);
     pub fn msg_job_done_set_from(msg: *mut JobDoneMsg, from: FromType);
     pub fn msg_job_done_is_from_server(msg: *const JobDoneMsg) -> bool;
     pub fn msg_job_done_flags(msg: *const JobDoneMsg) -> uint32_t;

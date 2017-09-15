@@ -363,6 +363,11 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, pfaults,
                                 msg_job_done_page_faults,
                                 msg_job_done_set_page_faults)
 
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, exitcode,
+                                int, int,
+                                msg_job_done_exit_code,
+                                msg_job_done_set_exit_code)
+
 C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, flags,
                                 uint32_t, uint32_t,
                                 msg_job_done_flags,
