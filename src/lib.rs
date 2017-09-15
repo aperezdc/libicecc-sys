@@ -19,6 +19,13 @@ pub enum CompileJobLanguage {
     CUSTOM,
 }
 
+#[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
+pub enum FromType {
+    FROM_SERVER = 0,
+    FROM_SUBMITTER = 1,
+}
+
 
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
@@ -208,6 +215,30 @@ extern "C" {
     pub fn msg_job_begin_new_with_id(job_id: c_uint) -> *mut JobBeginMsg;
     pub fn msg_job_begin_start_time(msg: *const JobBeginMsg) -> uint8_t;
     pub fn msg_job_begin_set_tart_time(msg: *mut JobBeginMsg, time: uint32_t);
+
+    // JobDoneMsg
+    pub fn msg_job_done_new() -> *mut JobDoneMsg;
+    pub fn msg_job_done_new_with_options(job_id: c_uint, exitcode: c_int, flags: c_uint) -> *mut JobDoneMsg;
+    pub fn msg_job_done_real_msec(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_real_msec(msg: *mut JobDoneMsg, msec: uint32_t);
+    pub fn msg_job_done_user_msec(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_user_msec(msg: *mut JobDoneMsg, msec: uint32_t);
+    pub fn msg_job_done_sys_msec(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_sys_msec(msg: *mut JobDoneMsg, msec: uint32_t);
+    pub fn msg_job_done_page_faults(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_page_faults(msg: *mut JobDoneMsg, msec: uint32_t);
+    pub fn msg_job_done_set_from(msg: *mut JobDoneMsg, from: FromType);
+    pub fn msg_job_done_is_from_server(msg: *const JobDoneMsg) -> bool;
+    pub fn msg_job_done_flags(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_flags(msg: *mut JobDoneMsg, flags: uint32_t);
+    pub fn msg_job_done_compressed_bytes_in(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_compressed_bytes_in(msg: *mut JobDoneMsg, bytes: uint32_t);
+    pub fn msg_job_done_uncompressed_bytes_in(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_uncompressed_bytes_in(msg: *mut JobDoneMsg, bytes: uint32_t);
+    pub fn msg_job_done_compressed_bytes_out(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_compressed_bytes_out(msg: *mut JobDoneMsg, bytes: uint32_t);
+    pub fn msg_job_done_uncompressed_bytes_out(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_done_set_uncompressed_bytes_out(msg: *mut JobDoneMsg, bytes: uint32_t);
 
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);

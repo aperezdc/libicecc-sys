@@ -319,6 +319,74 @@ C_WRAP(CCompileJob* msg_compile_file_take_job(CCompileFileMsg* msg))
     return reinterpret_cast<CCompileJob*>(result);
 }
 
+//
+// JobDoneMsg
+//
+C_WRAP_NEW(JobDoneMsg, msg_job_done_new)
+
+C_WRAP(CJobDoneMsg* msg_job_done_new_with_options(int job_id,
+                                                  int exitcode,
+                                                  unsigned int flags))
+{
+    return reinterpret_cast<CJobDoneMsg*>(new JobDoneMsg(job_id, exitcode, flags));
+}
+
+C_WRAP(void msg_job_done_set_from(CJobDoneMsg* msg, JobDoneMsg::from_type from))
+{
+    assert(msg);
+    reinterpret_cast<JobDoneMsg*>(msg)->set_from(from);
+}
+
+C_WRAP(bool msg_job_done_is_from_server(CJobDoneMsg* msg))
+{
+    assert(msg);
+    return reinterpret_cast<JobDoneMsg*>(msg)->is_from_server();
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, real_msec,
+                                uint32_t, uint32_t,
+                                msg_job_done_real_msec,
+                                msg_job_done_set_real_msec)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, user_msec,
+                                uint32_t, uint32_t,
+                                msg_job_done_user_msec,
+                                msg_job_done_set_user_msec)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, sys_msec,
+                                uint32_t, uint32_t,
+                                msg_job_done_sys_msec,
+                                msg_job_done_set_sys_msec)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, pfaults,
+                                uint32_t, uint32_t,
+                                msg_job_done_page_faults,
+                                msg_job_done_set_page_faults)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, flags,
+                                uint32_t, uint32_t,
+                                msg_job_done_flags,
+                                msg_job_done_set_flags)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, in_compressed,
+                                uint32_t, uint32_t,
+                                msg_job_done_compressed_bytes_in,
+                                msg_job_done_set_compressed_bytes_in)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, in_uncompressed,
+                                uint32_t, uint32_t,
+                                msg_job_done_uncompressed_bytes_in,
+                                msg_job_done_set_uncompressed_bytes_in)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, out_compressed,
+                                uint32_t, uint32_t,
+                                msg_job_done_compressed_bytes_out,
+                                msg_job_done_set_compressed_bytes_out)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, out_uncompressed,
+                                uint32_t, uint32_t,
+                                msg_job_done_uncompressed_bytes_out,
+                                msg_job_done_set_uncompressed_bytes_out)
 
 //
 // FileChunkMsg
