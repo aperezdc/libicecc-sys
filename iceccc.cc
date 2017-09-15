@@ -420,6 +420,21 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobLocalBeginMsg, id,
                                 msg_job_local_begin_set_id)
 
 //
+// JobLocalDoneMsg
+//
+C_WRAP_NEW(JobLocalDoneMsg, msg_job_local_done_new)
+
+C_WRAP(CJobLocalDoneMsg* msg_job_local_done_new_with_id(unsigned int job_id))
+{
+    return reinterpret_cast<CJobLocalDoneMsg*>(new JobLocalDoneMsg(job_id));
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobLocalDoneMsg, job_id,
+                                uint32_t, uint32_t,
+                                msg_job_local_done_id,
+                                msg_job_local_done_set_id)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //
