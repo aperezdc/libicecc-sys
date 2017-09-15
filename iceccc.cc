@@ -284,6 +284,16 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(UseCSMsg, matched_job_id,
                                 msg_use_cs_set_matched_job_id)
 
 //
+// GetNativeEnvMsg
+// TODO: extrafiles
+//
+C_WRAP_NEW(GetNativeEnvMsg, msg_get_native_env_new)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(GetNativeEnvMsg, compiler,
+                                 msg_get_native_env_compiler,
+                                 msg_get_native_env_set_compiler)
+
+//
 // MsgChannel
 //
 C_WRAP(void msg_channel_free(CMsgChannel* chan))

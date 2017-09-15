@@ -177,6 +177,11 @@ extern "C" {
     pub fn msg_use_cs_matched_job_id(msg: *const UseCSMsg) -> uint32_t;
     pub fn msg_use_cs_set_matched_job_id(msg: *mut UseCSMsg, matched_job_id: uint32_t);
 
+    // GetNativeEnvMsg
+    pub fn msg_get_native_env_new() -> *mut GetNativeEnvMsg;
+    pub fn msg_get_native_env_compiler(msg: *const GetNativeEnvMsg) -> *mut c_char;
+    pub fn msg_get_native_env_set_compiler(msg: *mut GetNativeEnvMsg, compiler: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
