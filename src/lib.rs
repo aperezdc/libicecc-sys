@@ -203,6 +203,12 @@ extern "C" {
     pub fn msg_compile_result_out_of_memory(msg: *const CompileResultMsg) -> bool;
     pub fn msg_compile_result_set_out_of_memory(msg: *mut CompileResultMsg, oom: bool);
 
+    // JobBeginMsg
+    pub fn msg_job_begin_new() -> *mut JobBeginMsg;
+    pub fn msg_job_begin_new_with_id(job_id: c_uint) -> *mut JobBeginMsg;
+    pub fn msg_job_begin_start_time(msg: *const JobBeginMsg) -> uint8_t;
+    pub fn msg_job_begin_set_tart_time(msg: *mut JobBeginMsg, time: uint32_t);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

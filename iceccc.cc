@@ -355,6 +355,21 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(CompileResultMsg, was_out_of_memory,
                                 msg_compile_result_set_out_of_memory)
 
 //
+// JobBeginMsg
+//
+C_WRAP_NEW(JobBeginMsg, msg_job_begin_new)
+
+C_WRAP(CJobBeginMsg* msg_job_begin_new_with_id(unsigned int job_id))
+{
+    return reinterpret_cast<CJobBeginMsg*>(new JobBeginMsg(job_id));
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobBeginMsg, stime,
+                                uint32_t, uint32_t,
+                                msg_job_begin_start_time,
+                                msg_job_begin_set_tart_time)
+
+//
 // MsgChannel
 //
 C_WRAP(void msg_channel_free(CMsgChannel* chan))
