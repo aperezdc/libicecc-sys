@@ -435,6 +435,35 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobLocalDoneMsg, job_id,
                                 msg_job_local_done_set_id)
 
 //
+// TODO: LoginMsg
+//
+
+//
+// ConfCSMsg
+//
+C_WRAP_NEW(ConfCSMsg, msg_conf_cs_new)
+
+C_WRAP(CConfCSMsg* msg_conf_cs_new_with_bench(const char* bench))
+{
+    assert(bench);
+    return reinterpret_cast<CConfCSMsg*>(new ConfCSMsg(bench));
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(ConfCSMsg, max_scheduler_pong,
+                                uint32_t, uint32_t,
+                                msg_conf_cs_max_scheduler_pong,
+                                msg_conf_cs_set_max_scheduler_pong)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(ConfCSMsg, max_scheduler_ping,
+                                uint32_t, uint32_t,
+                                msg_conf_cs_max_scheduler_ping,
+                                msg_conf_cs_set_max_scheduler_ping)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(ConfCSMsg, bench_source,
+                                 msg_conf_cs_bench_source,
+                                 msg_conf_cs_set_bench_source)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

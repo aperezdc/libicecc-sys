@@ -258,6 +258,18 @@ extern "C" {
     pub fn msg_job_local_done_id(msg: *const JobLocalDoneMsg) -> uint32_t;
     pub fn msg_job_local_done_set_id(msg: *mut JobLocalDoneMsg, job_id: uint32_t);
 
+    // TODO LoginMsg
+
+    // ConfCSMsg
+    pub fn msg_conf_cs_new() -> *mut ConfCSMsg;
+    pub fn msg_conf_cs_new_with_bench(bench: *const c_char) -> *mut ConfCSMsg;
+    pub fn msg_conf_cs_max_scheduler_pong(msg: *const ConfCSMsg) -> uint32_t;
+    pub fn msg_conf_cs_set_max_scheduler_pong(msg: *mut ConfCSMsg, value: uint32_t);
+    pub fn msg_conf_cs_max_scheduler_ping(msg: *const ConfCSMsg) -> uint32_t;
+    pub fn msg_conf_cs_set_max_scheduler_ping(msg: *mut ConfCSMsg, value: uint32_t);
+    pub fn msg_conf_cs_bench_source(msg: *const ConfCSMsg) -> *mut c_char;
+    pub fn msg_conf_cs_set_bench_source(msg: *mut ConfCSMsg, src: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
