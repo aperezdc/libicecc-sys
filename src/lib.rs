@@ -187,6 +187,10 @@ extern "C" {
     pub fn msg_use_native_env_version(msg: *const UseNativeEnvMsg) -> *mut c_char;
     pub fn msg_use_native_env_set_version(msg: *mut UseNativeEnvMsg, version: *const c_char);
 
+    // CompileFileMsg
+    pub fn msg_compile_file_new(job: *mut CompileJob, delete_job: bool) -> *mut CompileFileMsg;
+    pub fn msg_compile_file_take_job(msg: *mut CompileFileMsg) -> *mut CompileJob;
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

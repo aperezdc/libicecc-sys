@@ -302,6 +302,23 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(UseNativeEnvMsg, nativeVersion,
                                  msg_use_native_env_version,
                                  msg_use_native_env_set_version)
 
+//
+// CompileFileMsg
+//
+C_WRAP(CCompileFileMsg* msg_compile_file_new(CCompileJob* job, bool delete_job))
+{
+    assert(job);
+    auto result = new CompileFileMsg(reinterpret_cast<CompileJob*>(job), delete_job);
+    return reinterpret_cast<CCompileFileMsg*>(result);
+}
+
+C_WRAP(CCompileJob* msg_compile_file_take_job(CCompileFileMsg* msg))
+{
+    assert(msg);
+    auto result = reinterpret_cast<CompileFileMsg*>(msg)->takeJob();
+    return reinterpret_cast<CCompileJob*>(result);
+}
+
 
 //
 // MsgChannel
