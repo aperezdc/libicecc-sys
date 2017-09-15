@@ -7,7 +7,7 @@
 #![allow(dead_code, non_camel_case_types)]
 
 extern crate libc;
-use libc::{ c_char, c_int, c_uint, uint32_t };
+use libc::{ c_char, c_int, c_uint, uint32_t, uint8_t, size_t };
 
 
 #[repr(C)]
@@ -190,6 +190,9 @@ extern "C" {
     // CompileFileMsg
     pub fn msg_compile_file_new(job: *mut CompileJob, delete_job: bool) -> *mut CompileFileMsg;
     pub fn msg_compile_file_take_job(msg: *mut CompileFileMsg) -> *mut CompileJob;
+
+    // FileChunkMsg
+    pub fn msg_file_chunk_new(data: *mut uint8_t, len: size_t) -> *mut FileChunkMsg;
 
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);

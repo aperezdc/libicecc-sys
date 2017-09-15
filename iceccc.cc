@@ -321,6 +321,17 @@ C_WRAP(CCompileJob* msg_compile_file_take_job(CCompileFileMsg* msg))
 
 
 //
+// FileChunkMsg
+// TODO: Check whether accessors might be needed.
+//
+C_WRAP(CFileChunkMsg* msg_file_chunk_new(unsigned char* data, size_t len))
+{
+    assert(data);
+    return reinterpret_cast<CFileChunkMsg*>(new FileChunkMsg(data, len));
+}
+
+
+//
 // MsgChannel
 //
 C_WRAP(void msg_channel_free(CMsgChannel* chan))
