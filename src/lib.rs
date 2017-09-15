@@ -182,6 +182,11 @@ extern "C" {
     pub fn msg_get_native_env_compiler(msg: *const GetNativeEnvMsg) -> *mut c_char;
     pub fn msg_get_native_env_set_compiler(msg: *mut GetNativeEnvMsg, compiler: *const c_char);
 
+    // UseNativeEnvMsg
+    pub fn msg_use_native_env_new() -> *mut UseNativeEnvMsg;
+    pub fn msg_use_native_env_version(msg: *const UseNativeEnvMsg) -> *mut c_char;
+    pub fn msg_use_native_env_set_version(msg: *mut UseNativeEnvMsg, version: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

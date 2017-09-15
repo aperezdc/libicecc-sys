@@ -294,6 +294,16 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(GetNativeEnvMsg, compiler,
                                  msg_get_native_env_set_compiler)
 
 //
+// UseNativeEnvMsg
+//
+C_WRAP_NEW(UseNativeEnvMsg, msg_use_native_env_new)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(UseNativeEnvMsg, nativeVersion,
+                                 msg_use_native_env_version,
+                                 msg_use_native_env_set_version)
+
+
+//
 // MsgChannel
 //
 C_WRAP(void msg_channel_free(CMsgChannel* chan))
