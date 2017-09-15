@@ -194,6 +194,15 @@ extern "C" {
     // FileChunkMsg
     pub fn msg_file_chunk_new(data: *mut uint8_t, len: size_t) -> *mut FileChunkMsg;
 
+    // CompileResultMsg
+    pub fn msg_compile_result_new() -> *mut CompileResultMsg;
+    pub fn msg_compile_result_status(msg: *const CompileResultMsg) -> c_int;
+    pub fn msg_compile_restul_set_status(msg: *mut CompileResultMsg, status: c_int);
+    pub fn msg_compile_result_stdout(msg: *mut CompileResultMsg) -> *mut c_char;
+    pub fn msg_compile_result_set_stdout(msg: *mut CompileResultMsg, text: *const c_char);
+    pub fn msg_compile_result_out_of_memory(msg: *const CompileResultMsg) -> bool;
+    pub fn msg_compile_result_set_out_of_memory(msg: *mut CompileResultMsg, oom: bool);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

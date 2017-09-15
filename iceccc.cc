@@ -332,6 +332,29 @@ C_WRAP(CFileChunkMsg* msg_file_chunk_new(unsigned char* data, size_t len))
 
 
 //
+// CompileResultMsg
+//
+C_WRAP_NEW(CompileResultMsg, msg_compile_result_new)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(CompileResultMsg, status,
+                                int, int,
+                                msg_compile_result_status,
+                                msg_compile_restul_set_status)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(CompileResultMsg, out,
+                                 msg_compile_result_stdout,
+                                 msg_compile_result_set_stdout)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(CompileResultMsg, err,
+                                 msg_compile_result_stderr,
+                                 msg_compile_result_set_stderr)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(CompileResultMsg, was_out_of_memory,
+                                bool, bool,
+                                msg_compile_result_out_of_memory,
+                                msg_compile_result_set_out_of_memory)
+
+//
 // MsgChannel
 //
 C_WRAP(void msg_channel_free(CMsgChannel* chan))
