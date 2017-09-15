@@ -242,6 +242,16 @@ extern "C" {
     pub fn msg_job_done_uncompressed_bytes_out(msg: *const JobDoneMsg) -> uint32_t;
     pub fn msg_job_done_set_uncompressed_bytes_out(msg: *mut JobDoneMsg, bytes: uint32_t);
 
+    // JobLocalBeginMsg
+    pub fn msg_job_local_begin_new() -> *mut JobLocalBeginMsg;
+    pub fn msg_job_local_begin_new_with_options(job_id: c_int, file: *const c_char) -> *mut JobLocalBeginMsg;
+    pub fn msg_job_local_begin_outfile(msg: *const JobLocalBeginMsg) -> *mut c_char;
+    pub fn msg_job_local_begin_set_outfile(msg: *mut JobLocalBeginMsg, file: *const c_char);
+    pub fn msg_job_local_begin_start_time(msg: *const JobLocalBeginMsg) -> uint32_t;
+    pub fn msg_job_local_begin_set_start_time(msg: *mut JobLocalBeginMsg, time: uint32_t);
+    pub fn msg_job_local_begin_id(msg: *const JobLocalBeginMsg) -> uint32_t;
+    pub fn msg_job_local_begin_set_id(msg: *mut JobLocalBeginMsg, job_id: uint32_t);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

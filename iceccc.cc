@@ -394,6 +394,32 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, out_uncompressed,
                                 msg_job_done_set_uncompressed_bytes_out)
 
 //
+// JobLocalBeginMsg
+//
+C_WRAP_NEW(JobLocalBeginMsg, msg_job_local_begin_new)
+
+C_WRAP(CJobLocalBeginMsg* msg_job_local_begin_new_with_options(int job_id,
+                                                               const char* file))
+{
+    assert(file);
+    return reinterpret_cast<CJobLocalBeginMsg*>(new JobLocalBeginMsg(job_id, file));
+}
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(JobLocalBeginMsg, outfile,
+                                 msg_job_local_begin_outfile,
+                                 msg_job_local_begin_set_outfile)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobLocalBeginMsg, stime,
+                                uint32_t, uint32_t,
+                                msg_job_local_begin_start_time,
+                                msg_job_local_begin_set_start_time)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobLocalBeginMsg, id,
+                                uint32_t, uint32_t,
+                                msg_job_local_begin_id,
+                                msg_job_local_begin_set_id)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //
