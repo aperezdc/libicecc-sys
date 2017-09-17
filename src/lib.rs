@@ -109,7 +109,7 @@ msgmap! {
     (M_CS_CONF => ConfCSMsg)
     (M_STATS => StatsMsg)
     (M_TRANSFER_ENV => EnvTransferMsg)
-    (M_GET_INTERNALS => GetInternalsStatus)
+    (M_GET_INTERNALS => GetInternalStatusMsg)
     (M_MON_LOGIN => MonLoginMsg)
     (M_MON_GET_CS => MonGetCSMsg)
     (M_MON_JOB_BEGIN => MonJobBeginMsg)
@@ -290,6 +290,12 @@ extern "C" {
     pub fn msg_env_transfer_set_name(msg: *mut EnvTransferMsg, name: *const c_char);
     pub fn msg_env_transfer_target(msg: *const EnvTransferMsg) -> *mut c_char;
     pub fn msg_env_transfer_set_target(msg: *mut EnvTransferMsg, target: *const c_char);
+
+    // GetInternalStatusMsg
+    pub fn msg_get_internal_status_new() -> *mut GetInternalStatusMsg;
+
+    // MonLoginMsg
+    pub fn msg_mon_login_new() -> *mut MonLoginMsg;
 
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);

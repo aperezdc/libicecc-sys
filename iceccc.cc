@@ -33,7 +33,7 @@
     F(M_CS_CONF, ConfCSMsg, conf_cs) \
     F(M_STATS, StatsMsg, stats) \
     F(M_TRANFER_ENV, EnvTransferMsg, env_transfer) \
-    F(M_GET_INTERNALS, GetInternalsStatus, get_internals) \
+    F(M_GET_INTERNALS, GetInternalStatus, get_internals) \
     F(M_MON_LOGIN, MonLoginMsg, mon_login) \
     F(M_MON_GET_CS, MonGetCSMsg, mon_get_cs) \
     F(M_MON_JOB_BEGIN, MonJobBeginMsg, mon_job_begin) \
@@ -513,6 +513,16 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(EnvTransferMsg, name,
 C_WRAP_OBJ_STRING_ATTR_ACCESSORS(EnvTransferMsg, target,
                                  msg_env_transfer_target,
                                  msg_env_transfer_set_target)
+
+//
+// GetInternalStatus
+//
+C_WRAP_NEW(GetInternalStatus, msg_get_internal_status_new)
+
+//
+// MonLoginMsg
+//
+C_WRAP_NEW(MonLoginMsg, msg_mon_login_new)
 
 //
 // FileChunkMsg
