@@ -708,6 +708,33 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(VerifyEnvResultMsg, ok,
                                 msg_verify_env_result_set_ok)
 
 //
+// BlacklistHostEnvMsg
+//
+C_WRAP_NEW(BlacklistHostEnvMsg, msg_blacklist_host_env_new)
+
+C_WRAP(CBlacklistHostEnvMsg* msg_blacklist_host_env_new_with_options(const char* environment,
+                                                                     const char* target,
+                                                                     const char* hostname))
+{
+    assert(environment);
+    assert(target);
+    assert(hostname);
+    return reinterpret_cast<CBlacklistHostEnvMsg*>(new BlacklistHostEnvMsg(environment, target, hostname));
+}
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(BlacklistHostEnvMsg, environment,
+                                 msg_blacklist_host_env_environment,
+                                 msg_blacklist_host_env_set_environment)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(BlacklistHostEnvMsg, target,
+                                 msg_blacklist_host_env_target,
+                                 msg_blacklist_host_env_set_target)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(BlacklistHostEnvMsg, hostname,
+                                 msg_blacklist_host_env_hostname,
+                                 msg_blacklist_host_env_set_hostname)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

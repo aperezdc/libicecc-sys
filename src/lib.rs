@@ -372,6 +372,18 @@ extern "C" {
     pub fn msg_verify_env_result_ok(msg: *const VerifyEnvResultMsg) -> bool;
     pub fn msg_verify_env_result_set_ok(msg: *mut VerifyEnvResultMsg, ok: bool);
 
+    // BlacklistHostEnvMsg
+    pub fn msg_blacklist_host_env_new() -> *mut BlacklistHostEnvMsg;
+    pub fn msg_blacklist_host_env_new_with_options(environment: *const c_char,
+                                                   target: *const c_char,
+                                                   hostname: *const c_char) -> *mut BlacklistHostEnvMsg;
+    pub fn msg_blacklist_host_env_environment(msg: *const BlacklistHostEnvMsg) -> *mut c_char;
+    pub fn msg_blacklist_host_env_set_environment(msg: *mut BlacklistHostEnvMsg, env: *const c_char);
+    pub fn msg_blacklist_host_env_target(msg: *const BlacklistHostEnvMsg) -> *mut c_char;
+    pub fn msg_blacklist_host_env_set_target(msg: *mut BlacklistHostEnvMsg, target: *const c_char);
+    pub fn msg_blacklist_host_env_hostname(msg: *const BlacklistHostEnvMsg) -> *mut c_char;
+    pub fn msg_blacklist_host_env_set_hostname(msg: *mut BlacklistHostEnvMsg, hostname: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
