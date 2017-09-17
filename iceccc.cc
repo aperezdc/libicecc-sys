@@ -576,6 +576,18 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonJobBeginMsg, hostid,
                                 msg_mon_job_begin_msg_set_host_id)
 
 //
+// MonJobDoneMsg
+//
+C_WRAP_NEW(MonJobDoneMsg, msg_mon_job_done_new)
+
+C_WRAP(CMonJobDoneMsg* msg_mon_job_done_new_with_job_done(const CJobDoneMsg* m))
+{
+    assert(m);
+    auto msg = reinterpret_cast<const JobDoneMsg*>(m);
+    return reinterpret_cast<CMonJobDoneMsg*>(new MonJobDoneMsg(*msg));
+}
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

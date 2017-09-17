@@ -318,6 +318,10 @@ extern "C" {
     pub fn msg_mon_job_begin_msg_host_id(msg: *const MonJobBeginMsg) -> uint32_t;
     pub fn msg_mon_job_begin_msg_set_host_id(msg: *mut MonJobBeginMsg, host_id: uint32_t);
 
+    // MonJobDoneMsg
+    pub fn msg_mon_job_done_new() -> *mut MonJobDoneMsg;
+    pub fn msg_mon_job_done_new_with_job_done(msg: *const JobDoneMsg) -> *mut MonJobDoneMsg;
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
