@@ -322,6 +322,21 @@ extern "C" {
     pub fn msg_mon_job_done_new() -> *mut MonJobDoneMsg;
     pub fn msg_mon_job_done_new_with_job_done(msg: *const JobDoneMsg) -> *mut MonJobDoneMsg;
 
+    // MonLocalJobBeginMsg
+    pub fn msg_mon_local_job_begin_new() -> *mut MonLocalJobBeginMsg;
+    pub fn msg_mon_local_job_begin_new_with_options(job_id: c_uint,
+                                                    file: *const c_char,
+                                                    start_time: c_uint,
+                                                    host_id: c_int) -> *mut MonLocalJobBeginMsg;
+    pub fn msg_mon_local_job_begin_job_id(msg: *const MonLocalJobBeginMsg) -> uint32_t;
+    pub fn msg_mon_local_job_begin_set_job_id(msg: *mut MonLocalJobBeginMsg, job_id: uint32_t);
+    pub fn msg_mon_local_job_begin_start_time(msg: *const MonLocalJobBeginMsg) -> uint32_t;
+    pub fn msg_mon_local_job_begin_set_start_time(msg: *mut MonLocalJobBeginMsg, time: uint32_t);
+    pub fn msg_mon_local_job_begin_host_id(msg: *const MonLocalJobBeginMsg) -> uint32_t;
+    pub fn msg_mon_local_job_begin_set_host_id(msg: *mut MonLocalJobBeginMsg, host_id: uint32_t);
+    pub fn msg_mon_local_job_begin_file(msg: *const MonLocalJobBeginMsg) -> *mut c_char;
+    pub fn msg_mon_local_job_begin_set_file(msg: *mut MonLocalJobBeginMsg, file: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

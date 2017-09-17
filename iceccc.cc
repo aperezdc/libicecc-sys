@@ -588,6 +588,39 @@ C_WRAP(CMonJobDoneMsg* msg_mon_job_done_new_with_job_done(const CJobDoneMsg* m))
 }
 
 //
+// MonLocalJobBeginMsg
+//
+C_WRAP_NEW(MonLocalJobBeginMsg, msg_mon_local_job_begin_new)
+
+C_WRAP(CMonLocalJobBeginMsg* msg_mon_local_job_begin_new_with_options(unsigned int job_id,
+                                                                      const char* file,
+                                                                      unsigned int start_time,
+                                                                      int host_id))
+{
+    assert(file);
+    return reinterpret_cast<CMonLocalJobBeginMsg*>(new MonLocalJobBeginMsg(job_id, file, start_time, host_id));
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonLocalJobBeginMsg, job_id,
+                                uint32_t, uint32_t,
+                                msg_mon_local_job_begin_job_id,
+                                msg_mon_local_job_begin_set_job_id)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonLocalJobBeginMsg, stime,
+                                uint32_t, uint32_t,
+                                msg_mon_local_job_begin_start_time,
+                                msg_mon_local_job_begin_set_start_time)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonLocalJobBeginMsg, hostid,
+                                uint32_t, uint32_t,
+                                msg_mon_local_job_begin_host_id,
+                                msg_mon_local_job_begin_set_host_id)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(MonLocalJobBeginMsg, file,
+                                 msg_mon_local_job_begin_file,
+                                 msg_mon_local_job_begin_set_file)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //
