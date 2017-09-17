@@ -657,6 +657,21 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(TextMsg, text,
                                  msg_text_set_text)
 
 //
+// StatusTextMsg
+//
+C_WRAP_NEW(StatusTextMsg, msg_status_text_new)
+
+C_WRAP(CStatusTextMsg* msg_status_text_new_with_text(const char* text))
+{
+    assert(text);
+    return reinterpret_cast<CStatusTextMsg*>(new StatusTextMsg(text));
+}
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(StatusTextMsg, text,
+                                 msg_status_text_text,
+                                 msg_status_text_set_text)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

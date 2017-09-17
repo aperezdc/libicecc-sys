@@ -351,6 +351,12 @@ extern "C" {
     pub fn msg_text_text(msg: *const TextMsg) -> *mut c_char;
     pub fn msg_text_set_text(msg: *mut TextMsg, text: *const c_char);
 
+    // StatusTextMsg
+    pub fn msg_status_text_new() -> *mut StatusTextMsg;
+    pub fn msg_status_text_new_with_text(text: *const c_char) -> *mut StatusTextMsg;
+    pub fn msg_status_text_text(msg: *const StatusTextMsg) -> *mut c_char;
+    pub fn msg_status_text_set_text(msg: *mut StatusTextMsg, text: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
