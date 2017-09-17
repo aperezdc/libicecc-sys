@@ -270,6 +270,19 @@ extern "C" {
     pub fn msg_conf_cs_bench_source(msg: *const ConfCSMsg) -> *mut c_char;
     pub fn msg_conf_cs_set_bench_source(msg: *mut ConfCSMsg, src: *const c_char);
 
+    // StatsMsg
+    pub fn msg_stats_new() -> *mut StatsMsg;
+    pub fn msg_stats_load(msg: *const StatsMsg) -> uint32_t;
+    pub fn msg_stats_set_load(msg: *mut StatsMsg, value: uint32_t);
+    pub fn msg_stats_load_average_1min(msg: *const StatsMsg) -> uint32_t;
+    pub fn msg_stats_set_load_average_1min(msg: *mut StatsMsg, value: uint32_t);
+    pub fn msg_stats_load_average_5min(msg: *const StatsMsg) -> uint32_t;
+    pub fn msg_stats_set_load_average_5min(msg: *mut StatsMsg, value: uint32_t);
+    pub fn msg_stats_load_average_10min(msg: *const StatsMsg) -> uint32_t;
+    pub fn msg_stats_set_load_average_10min(msg: *mut StatsMsg, value: uint32_t);
+    pub fn msg_stats_free_memory(msg: *const StatsMsg) -> uint32_t;
+    pub fn msg_stats_set_free_memory(msg: *mut StatsMsg, value: uint32_t);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

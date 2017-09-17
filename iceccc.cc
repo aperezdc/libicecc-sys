@@ -464,6 +464,36 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(ConfCSMsg, bench_source,
                                  msg_conf_cs_set_bench_source)
 
 //
+// StatsMsg
+//
+C_WRAP_NEW(StatsMsg, msg_stats_new)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(StatsMsg, load,
+                                uint32_t, uint32_t,
+                                msg_stats_load,
+                                msg_stats_set_load)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(StatsMsg, loadAvg1,
+                                uint32_t, uint32_t,
+                                msg_stats_load_average_1min,
+                                msg_stats_set_load_average_1min)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(StatsMsg, loadAvg5,
+                                uint32_t, uint32_t,
+                                msg_stats_load_average_5min,
+                                msg_stats_set_load_average_5min)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(StatsMsg, loadAvg10,
+                                uint32_t, uint32_t,
+                                msg_stats_load_average_10min,
+                                msg_stats_set_load_average_10min)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(StatsMsg, freeMem,
+                                uint32_t, uint32_t,
+                                msg_stats_free_memory,
+                                msg_stats_set_free_memory)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //
