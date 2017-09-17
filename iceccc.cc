@@ -621,6 +621,27 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(MonLocalJobBeginMsg, file,
                                  msg_mon_local_job_begin_set_file)
 
 //
+// MonStatsMsg
+//
+C_WRAP_NEW(MonStatsMsg, msg_mon_stats_new)
+
+C_WRAP(CMonStatsMsg* msg_mon_stats_new_with_options(int host_id,
+                                                    const char* message))
+{
+    assert(message);
+    return reinterpret_cast<CMonStatsMsg*>(new MonStatsMsg(host_id, message));
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonStatsMsg, hostid,
+                                uint32_t, uint32_t,
+                                msg_mon_stats_host_id,
+                                msg_mon_stats_set_host_id)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(MonStatsMsg, statmsg,
+                                 msg_mon_stats_message,
+                                 msg_mon_stats_set_message)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

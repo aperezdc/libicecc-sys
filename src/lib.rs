@@ -337,6 +337,14 @@ extern "C" {
     pub fn msg_mon_local_job_begin_file(msg: *const MonLocalJobBeginMsg) -> *mut c_char;
     pub fn msg_mon_local_job_begin_set_file(msg: *mut MonLocalJobBeginMsg, file: *const c_char);
 
+    // MonStatsMsg
+    pub fn msg_mon_stats_new() -> *mut MonStatsMsg;
+    pub fn msg_mon_stats_new_with_options(host_id: c_int, message: *const c_char) -> *mut MonStatsMsg;
+    pub fn msg_mon_stats_host_id(msg: *const MonStatsMsg) -> uint32_t;
+    pub fn msg_mon_stats_set_host_id(msg: *mut MonStatsMsg, host_id: uint32_t);
+    pub fn msg_mon_stats_message(msg: *const MonStatsMsg) -> *mut c_char;
+    pub fn msg_mon_stats_set_message(msg: *mut MonStatsMsg, message: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
