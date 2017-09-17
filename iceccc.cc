@@ -672,6 +672,27 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(StatusTextMsg, text,
                                  msg_status_text_set_text)
 
 //
+// VerifyEnvMsg
+//
+C_WRAP_NEW(VerifyEnvMsg, msg_verify_env_new)
+
+C_WRAP(CVerifyEnvMsg* msg_verify_env_new_with_options(const char* target,
+                                                      const char* environment))
+{
+    assert(target);
+    assert(environment);
+    return reinterpret_cast<CVerifyEnvMsg*>(new VerifyEnvMsg(target, environment));
+}
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(VerifyEnvMsg, target,
+                                 msg_verify_env_target,
+                                 msg_verify_env_set_target)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(VerifyEnvMsg, environment,
+                                 msg_verify_env_environment,
+                                 msg_verify_env_set_environment)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

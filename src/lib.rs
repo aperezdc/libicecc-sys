@@ -357,6 +357,15 @@ extern "C" {
     pub fn msg_status_text_text(msg: *const StatusTextMsg) -> *mut c_char;
     pub fn msg_status_text_set_text(msg: *mut StatusTextMsg, text: *const c_char);
 
+    // VerifyEnvMsg
+    pub fn msg_verify_env_new() -> *mut VerifyEnvMsg;
+    pub fn msg_verify_env_new_with_options(target: *const c_char,
+                                           environment: *const c_char) -> *mut VerifyEnvMsg;
+    pub fn msg_verify_env_target(msg: *const VerifyEnvMsg) -> *mut c_char;
+    pub fn msg_verify_env_set_target(msg: *mut VerifyEnvMsg, target: *const c_char);
+    pub fn msg_verify_env_environment(msg: *const VerifyEnvMsg) -> *mut c_char;
+    pub fn msg_verify_env_set_environment(msg: *mut VerifyEnvMsg, env: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
