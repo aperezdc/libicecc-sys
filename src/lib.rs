@@ -283,6 +283,14 @@ extern "C" {
     pub fn msg_stats_free_memory(msg: *const StatsMsg) -> uint32_t;
     pub fn msg_stats_set_free_memory(msg: *mut StatsMsg, value: uint32_t);
 
+    // EnvTransferMsg
+    pub fn msg_env_transfer_new() -> *mut EnvTransferMsg;
+    pub fn msg_env_transfer_new_with_options(name: *const c_char, target: *const c_char) -> *mut EnvTransferMsg;
+    pub fn msg_env_transfer_name(msg: *const EnvTransferMsg) -> *mut c_char;
+    pub fn msg_env_transfer_set_name(msg: *mut EnvTransferMsg, name: *const c_char);
+    pub fn msg_env_transfer_target(msg: *const EnvTransferMsg) -> *mut c_char;
+    pub fn msg_env_transfer_set_target(msg: *mut EnvTransferMsg, target: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);

@@ -494,6 +494,27 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(StatsMsg, freeMem,
                                 msg_stats_set_free_memory)
 
 //
+// EnvTransferMsg
+//
+C_WRAP_NEW(EnvTransferMsg, msg_env_transfer_new)
+
+C_WRAP(CEnvTransferMsg* msg_env_transfer_new_with_options(const char* name,
+                                                          const char* target))
+{
+    assert(name);
+    assert(target);
+    return reinterpret_cast<CEnvTransferMsg*>(new EnvTransferMsg(name, target));
+}
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(EnvTransferMsg, name,
+                                 msg_env_transfer_name,
+                                 msg_env_transfer_set_name)
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(EnvTransferMsg, target,
+                                 msg_env_transfer_target,
+                                 msg_env_transfer_set_target)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //
