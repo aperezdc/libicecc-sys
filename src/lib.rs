@@ -366,6 +366,12 @@ extern "C" {
     pub fn msg_verify_env_environment(msg: *const VerifyEnvMsg) -> *mut c_char;
     pub fn msg_verify_env_set_environment(msg: *mut VerifyEnvMsg, env: *const c_char);
 
+    // VerifyEnvResultMsg
+    pub fn msg_verify_env_result_new() -> *mut VerifyEnvResultMsg;
+    pub fn msg_verify_env_result_new_with_ok(ok: bool) -> *mut VerifyEnvResultMsg;
+    pub fn msg_verify_env_result_ok(msg: *const VerifyEnvResultMsg) -> bool;
+    pub fn msg_verify_env_result_set_ok(msg: *mut VerifyEnvResultMsg, ok: bool);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
