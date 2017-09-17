@@ -642,6 +642,21 @@ C_WRAP_OBJ_STRING_ATTR_ACCESSORS(MonStatsMsg, statmsg,
                                  msg_mon_stats_set_message)
 
 //
+// TextMsg
+//
+C_WRAP_NEW(TextMsg, msg_text_new)
+
+C_WRAP(CTextMsg* msg_text_new_with_text(const char* text))
+{
+    assert(text);
+    return reinterpret_cast<CTextMsg*>(new TextMsg(text));
+}
+
+C_WRAP_OBJ_STRING_ATTR_ACCESSORS(TextMsg, text,
+                                 msg_text_text,
+                                 msg_text_set_text)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

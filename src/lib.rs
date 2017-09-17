@@ -345,6 +345,12 @@ extern "C" {
     pub fn msg_mon_stats_message(msg: *const MonStatsMsg) -> *mut c_char;
     pub fn msg_mon_stats_set_message(msg: *mut MonStatsMsg, message: *const c_char);
 
+    // TextMsg
+    pub fn msg_text_new() -> *mut TextMsg;
+    pub fn msg_text_new_with_text(text: *const c_char) -> *mut TextMsg;
+    pub fn msg_text_text(msg: *const TextMsg) -> *mut c_char;
+    pub fn msg_text_set_text(msg: *mut TextMsg, text: *const c_char);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
