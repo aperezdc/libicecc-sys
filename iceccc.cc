@@ -525,6 +525,30 @@ C_WRAP_NEW(GetInternalStatus, msg_get_internal_status_new)
 C_WRAP_NEW(MonLoginMsg, msg_mon_login_new)
 
 //
+// MonGetCSMsg
+//
+C_WRAP_NEW(MonGetCSMsg, msg_mon_get_cs_new)
+
+C_WRAP(CMonGetCSMsg* msg_mon_get_cs_new_with_options(int job_id,
+                                                     int client_id,
+                                                     const CGetCSMsg* m))
+{
+    assert(m);
+    auto msg = reinterpret_cast<GetCSMsg*>(const_cast<CGetCSMsg*>(m));
+    return reinterpret_cast<CMonGetCSMsg*>(new MonGetCSMsg(job_id, client_id, msg));
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonGetCSMsg, job_id,
+                                uint32_t, uint32_t,
+                                msg_mon_get_cs_job_id,
+                                msg_mon_get_cs_set_job_id)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonGetCSMsg, clientid,
+                                uint32_t, uint32_t,
+                                msg_mon_get_cs_client_id,
+                                msg_mon_get_cs_set_client_id)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

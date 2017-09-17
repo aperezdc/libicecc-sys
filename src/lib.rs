@@ -297,6 +297,15 @@ extern "C" {
     // MonLoginMsg
     pub fn msg_mon_login_new() -> *mut MonLoginMsg;
 
+    // MonGetCSMsg
+    pub fn msg_mon_get_cs_new() -> *mut MonGetCSMsg;
+    pub fn msg_mon_get_cs_new_with_options(job_id: c_int, client_id: c_int,
+                                           msg: *const GetCSMsg) -> *mut MonGetCSMsg;
+    pub fn msg_mon_get_cs_job_id(msg: *const MonGetCSMsg) -> uint32_t;
+    pub fn msg_mon_get_cs_set_job_id(msg: *mut MonGetCSMsg, job_id: uint32_t);
+    pub fn msg_mon_get_cs_client_id(msg: *const MonGetCSMsg) -> uint32_t;
+    pub fn msg_mon_get_cs_set_client_id(msg: *mut MonGetCSMsg, client_id: uint32_t);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
