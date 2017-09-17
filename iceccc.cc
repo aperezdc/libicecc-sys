@@ -549,6 +549,33 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonGetCSMsg, clientid,
                                 msg_mon_get_cs_set_client_id)
 
 //
+// MonJobBeginMsg
+//
+C_WRAP_NEW(MonJobBeginMsg, msg_mon_job_begin_msg_new)
+
+C_WRAP(CMonJobBeginMsg* msg_mon_job_begin_msg_new_with_options(unsigned int job_id,
+                                                               unsigned int start_time,
+                                                               unsigned int host_id))
+{
+    return reinterpret_cast<CMonJobBeginMsg*>(new MonJobBeginMsg(job_id, start_time, host_id));
+}
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonJobBeginMsg, job_id,
+                                uint32_t, uint32_t,
+                                msg_mon_job_begin_msg_job_id,
+                                msg_mon_job_begin_msg_set_job_id)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonJobBeginMsg, stime,
+                                uint32_t, uint32_t,
+                                msg_mon_job_begin_msg_start_time,
+                                msg_mon_job_begin_msg_set_start_time)
+
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(MonJobBeginMsg, hostid,
+                                uint32_t, uint32_t,
+                                msg_mon_job_begin_msg_host_id,
+                                msg_mon_job_begin_msg_set_host_id)
+
+//
 // FileChunkMsg
 // TODO: Check whether accessors might be needed.
 //

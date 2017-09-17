@@ -306,6 +306,18 @@ extern "C" {
     pub fn msg_mon_get_cs_client_id(msg: *const MonGetCSMsg) -> uint32_t;
     pub fn msg_mon_get_cs_set_client_id(msg: *mut MonGetCSMsg, client_id: uint32_t);
 
+    // MonJobBeginMsg
+    pub fn msg_mon_job_begin_msg_new() -> *mut MonJobBeginMsg;
+    pub fn msg_mon_job_begin_msg_new_with_options(job_id: c_uint,
+                                                  start_time: c_uint,
+                                                  host_id: c_uint) -> *mut MonJobBeginMsg;
+    pub fn msg_mon_job_begin_msg_job_id(msg: *const MonJobBeginMsg) -> uint32_t;
+    pub fn msg_mon_job_begin_msg_set_job_id(msg: *mut MonJobBeginMsg, job_id: uint32_t);
+    pub fn msg_mon_job_begin_msg_start_time(msg: *const MonJobBeginMsg) -> uint32_t;
+    pub fn msg_mon_job_begin_msg_set_start_time(msg: *mut MonJobBeginMsg, time: uint32_t);
+    pub fn msg_mon_job_begin_msg_host_id(msg: *const MonJobBeginMsg) -> uint32_t;
+    pub fn msg_mon_job_begin_msg_set_host_id(msg: *mut MonJobBeginMsg, host_id: uint32_t);
+
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
