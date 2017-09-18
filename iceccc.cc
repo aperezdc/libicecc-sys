@@ -146,6 +146,14 @@ typedef struct CDiscoverSched CDiscoverSched;
 //
 // CompileJob
 //
+C_WRAP_NEW(CompileJob, compile_job_new)
+
+C_WRAP(void compile_job_free(CCompileJob* job))
+{
+    assert(job);
+    delete reinterpret_cast<CompileJob*>(job);
+}
+
 C_WRAP_OBJ_VALUE_ACCESSORS(CompileJob,
                            unsigned int, unsigned int,
                            compile_job_id, jobID,

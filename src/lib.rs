@@ -127,6 +127,8 @@ msgmap! {
 extern "C" {
     // CompileJob
     // TODO: Flags.
+    pub fn compile_job_new() -> *mut CompileJob;
+    pub fn compile_job_free(job: *mut CompileJob);
     pub fn compile_job_id(job: *const CompileJob) -> c_uint;
     pub fn compile_job_set_id(job: *mut CompileJob, j_id: c_uint);
     pub fn compile_job_language(job: *const CompileJob) -> CompileJobLanguage;
