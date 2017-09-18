@@ -832,10 +832,10 @@ C_WRAP(CMsg* msg_channel_get_msg_with_timeout(CMsgChannel* chan, int timeout))
     return reinterpret_cast<CMsg*>(result);
 }
 
-C_WRAP(void msg_channel_read_a_bit(CMsgChannel* chan))
+C_WRAP(bool msg_channel_read_a_bit(CMsgChannel* chan))
 {
     assert(chan);
-    reinterpret_cast<MsgChannel*>(chan)->read_a_bit();
+    return reinterpret_cast<MsgChannel*>(chan)->read_a_bit();
 }
 
 C_WRAP(bool msg_channel_at_eof(const CMsgChannel* chan))

@@ -383,7 +383,7 @@ extern "C" {
     pub fn msg_channel_get_msg(chan: *mut MsgChannel) -> *mut Msg;
     pub fn msg_channel_get_msg_with_timeout(chan: *mut MsgChannel, timeout: c_int) -> *mut Msg;
     pub fn msg_channel_has_msg(chan: *const MsgChannel) -> bool;
-    pub fn msg_channel_read_a_bit(chan: *mut MsgChannel);
+    pub fn msg_channel_read_a_bit(chan: *mut MsgChannel) -> bool;
     pub fn msg_channel_at_eof(chan: *const MsgChannel) -> bool;
     pub fn msg_channel_is_text_based(chan: *const MsgChannel) -> bool;
 
