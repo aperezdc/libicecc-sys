@@ -81,16 +81,6 @@ macro_rules! msgmap {
 }
 
 
-macro_rules! msg_as {
-    ($t:ty, $e:expr) => {
-        if msg_get_type($e) != $t::TYPE_TAG {
-            panic!("invalid cast from {:?} to {}", msg_get_type($e), stringize!($t));
-        }
-        ($e as *mut $t)
-    }
-}
-
-
 msgmap! {
     (M_PING => PingMsg)
     (M_END => EndMsg)
