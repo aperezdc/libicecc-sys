@@ -800,6 +800,12 @@ C_WRAP(void msg_channel_free(CMsgChannel* chan))
     delete reinterpret_cast<MsgChannel*>(chan);
 }
 
+C_WRAP(int msg_channel_fd(CMsgChannel* chan))
+{
+    assert(chan);
+    return reinterpret_cast<MsgChannel*>(chan)->fd;
+}
+
 C_WRAP(void msg_channel_set_bulk_transfer(CMsgChannel* chan))
 {
     assert(chan);

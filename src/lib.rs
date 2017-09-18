@@ -378,6 +378,7 @@ extern "C" {
 
     // MsgChannel
     pub fn msg_channel_free(chan: *mut MsgChannel);
+    pub fn msg_channel_fd(chan: *const MsgChannel) -> c_int;
     pub fn msg_channel_set_bulk_transfer(chan: *mut MsgChannel);
     pub fn msg_channel_get_msg(chan: *mut MsgChannel) -> *mut Msg;
     pub fn msg_channel_get_msg_with_timeout(chan: *mut MsgChannel, timeout: c_int) -> *mut Msg;
