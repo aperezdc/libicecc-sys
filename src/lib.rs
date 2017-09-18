@@ -233,6 +233,8 @@ extern "C" {
     pub fn msg_job_done_set_compressed_bytes_out(msg: *mut JobDoneMsg, bytes: uint32_t);
     pub fn msg_job_done_uncompressed_bytes_out(msg: *const JobDoneMsg) -> uint32_t;
     pub fn msg_job_done_set_uncompressed_bytes_out(msg: *mut JobDoneMsg, bytes: uint32_t);
+    pub fn msg_job_done_id(msg: *const JobDoneMsg) -> uint32_t;
+    pub fn msg_job_don_set_id(msg: *mut JobDoneMsg, job_id: uint32_t);
 
     // JobLocalBeginMsg
     pub fn msg_job_local_begin_new() -> *mut JobLocalBeginMsg;

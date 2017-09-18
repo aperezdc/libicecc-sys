@@ -401,6 +401,11 @@ C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, out_uncompressed,
                                 msg_job_done_uncompressed_bytes_out,
                                 msg_job_done_set_uncompressed_bytes_out)
 
+C_WRAP_OBJ_VALUE_ATTR_ACCESSORS(JobDoneMsg, job_id,
+                                uint32_t, uint32_t,
+                                msg_job_done_id,
+                                msg_job_done_set_id)
+
 //
 // JobLocalBeginMsg
 //
