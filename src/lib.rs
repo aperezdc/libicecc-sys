@@ -405,6 +405,6 @@ extern "C" {
     pub fn discover_sched_timed_out(dsched: *mut DiscoverSched) -> bool;
     pub fn discover_sched_listen_fd(dsched: *const DiscoverSched) -> c_int;
     pub fn discover_sched_connect_fd(dsched: *const DiscoverSched) -> c_int;
-    pub fn discover_try_get_scheduler(dsched: *mut DiscoverSched) -> *mut MsgChannel;
+    pub fn discover_sched_try_get_scheduler(dsched: *mut DiscoverSched) -> *mut MsgChannel;
     pub fn discover_sched_scheduler_name(dsched: *const DiscoverSched) -> *mut c_char;
 }
