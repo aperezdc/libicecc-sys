@@ -4,7 +4,7 @@
 // Distributed under terms of the MIT license.
 //
 
-extern crate gcc;
+extern crate cc;
 extern crate pkg_config;
 
 fn main()
@@ -14,7 +14,7 @@ fn main()
         .probe("icecc")
         .unwrap();
 
-    let mut build = gcc::Build::new();
+    let mut build = cc::Build::new();
     build.cpp(true).warnings(true);
     for path in icecc.include_paths {
          build.include(path);
